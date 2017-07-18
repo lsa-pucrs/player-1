@@ -1,0 +1,20 @@
+description{
+@brief Interface to an simpler audio system
+
+It @p plays an audio file stored in the robot's computer.
+}
+
+/** Cmd subtype: play audio file command */
+message { CMD, VALUES, 1, player_playsound_cmd_t };
+
+
+/** @brief Command: audio file
+ * Send a @ref PLAYER_PLAYSOUND_CMD_VALUES cmd to play an audio file
+ **/
+typedef struct player_playsound_cmd
+{
+  /** Length of string */
+  uint32_t string_count;
+  /** The audio filename to be played*/
+  char *string;
+} player_playsound_cmd_t;
