@@ -223,7 +223,8 @@ IF (BUILD_PLAYERCC)
                         stereoproxy.cc
                         vectormapproxy.cc
                         wifiproxy.cc
-                        wsnproxy.cc)
+                        wsnproxy.cc
+                        playsoundproxy.cc)
 
     IF (NOT HAVE_NANOSLEEP)
         SET (playerreplaceLib playerreplace)

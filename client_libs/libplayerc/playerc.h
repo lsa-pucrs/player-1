@@ -3866,6 +3866,42 @@ PLAYERC_EXPORT int playerc_wsn_datafreq(playerc_wsn_t *device, int node_id, int 
 /** @} */
 /***************************************************************************/
 
+
+/**************************************************************************/
+/** @ingroup playerc_proxies
+ * @defgroup playerc_proxy_playsound playsound
+ * @brief The PlaySound proxy provides an interface to play audio files stored into the robot's computer.
+
+@{
+*/
+
+/** PlaySound proxy data. */
+typedef struct
+{
+  /** Device info; must be at the start of all device structures. */
+  playerc_device_t info;
+  // if the proxy requires any attribute, it would be placed here
+} playerc_playsound_t;
+
+
+/** Create a playsound proxy. */
+PLAYERC_EXPORT playerc_playsound_t *playerc_playsound_create(playerc_client_t *client, int index);
+
+/** Destroy a playsound proxy. */
+PLAYERC_EXPORT void playerc_playsound_destroy(playerc_playsound_t *device);
+
+/** Subscribe to the sound device. */
+PLAYERC_EXPORT int playerc_playsound_subscribe(playerc_playsound_t *device, int access);
+
+/** Un-subscribe from the playsound device. */
+PLAYERC_EXPORT int playerc_playsound_unsubscribe(playerc_playsound_t *device);
+
+/** Play a playsound file by name. */
+PLAYERC_EXPORT int playerc_playsound_play(playerc_playsound_t *playdevice, char *filename);
+
+/** @} */
+/***************************************************************************/
+
 #ifdef __cplusplus
 }
 #endif

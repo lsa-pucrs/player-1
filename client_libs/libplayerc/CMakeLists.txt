@@ -55,7 +55,8 @@ SET (playercSrcs    playerc.h
                     dev_stereo.c
                     dev_vectormap.c
                     dev_wifi.c
-                    dev_wsn.c)
+                    dev_wsn.c
+                    dev_playsound.c)
 IF (NOT HAVE_GETTIMEOFDAY)
     SET (playerreplaceLib playerreplace)
 ENDIF (NOT HAVE_GETTIMEOFDAY)

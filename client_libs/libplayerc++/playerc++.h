@@ -2991,8 +2991,32 @@ class PLAYERCC_EXPORT WSNProxy : public ClientProxy
     void DataFreq(int nodeID, int groupID, float frequency);
 };
 
+
+/**
+The @p PlaySoundProxy class is used to play an audio file located in the robot's computer.
+*/
+class PLAYERCC_EXPORT PlaySoundProxy : public ClientProxy
+{
+  private:
+
+    void Subscribe(uint32_t aIndex);
+    void Unsubscribe();
+
+    /// the interface data structure
+    playerc_playsound_t *mDevice;
+
+  public:
+    /// constructor
+    PlaySoundProxy(PlayerClient *aPc, uint32_t aIndex=0);
+    /// destructor
+    ~PlaySoundProxy();
+    /// the main method of the proxy, used to send the audio filename to be player
+    void play(char *filename);
+};
+
 /** @} (proxies)*/
 }
+
 
 namespace std
 {
@@ -3043,6 +3067,7 @@ namespace std
   PLAYERCC_EXPORT std::ostream& operator << (std::ostream& os, const PlayerCc::WiFiProxy& c);
   PLAYERCC_EXPORT std::ostream& operator << (std::ostream& os, const PlayerCc::RFIDProxy& c);
   PLAYERCC_EXPORT std::ostream& operator << (std::ostream& os, const PlayerCc::WSNProxy& c);
+  PLAYERCC_EXPORT std::ostream& operator << (std::ostream& os, const PlayerCc::PlaySoundProxy& c);  
 }
 
 #endif
