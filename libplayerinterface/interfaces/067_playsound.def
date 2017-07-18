@@ -15,6 +15,6 @@ typedef struct player_playsound_cmd
 {
   /** Length of string */
   uint32_t string_count;
-  /** The audio filename to be played*/
-  char *string;
+  /** Filename to be played; max 255 chars + terminating NULL */
+  char string[256];  
 } player_playsound_cmd_t;

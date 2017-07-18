@@ -105,9 +105,7 @@ int playerc_playsound_play(playerc_playsound_t *device, char *string)
   player_playsound_cmd_t cmd;
   //memset(&cmd, 0, sizeof(cmd));
 
-  //strcpy(cmd.filename,filename);
-  memset(&cmd, 0, sizeof(cmd));
-  cmd.string = string;
+  strcpy(cmd.string,string);
   cmd.string_count = strlen(string) + 1;   
 
   return playerc_client_write(device->info.client,
