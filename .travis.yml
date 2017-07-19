@@ -1,0 +1,18 @@
+language: cpp
+dist: trusty
+compiler:
+  - gcc
+
+# Install all the dependencies:
+install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libgnomecanvasmm-2.6-dev
+
+# Execute all of the commands which should make the build pass or fail
+script:
+  - mkdir build
+  - cd build
+  - cmake -DCMAKE_BUILD_TYPE=RELEASE -DDEBUG_LEVEL=NONE -BUILD_PYTHONC_BINDINGS:BOOL=OFF -DCMAKE_INSTALL_PREFIX=$(pwd)/install ..
+  - make
+  - make install
+
