@@ -9,7 +9,8 @@ see individual libraries and source files for details.
 
 The Player homepage is:
 
-  https://playerproject.github.io/
+  - https://playerproject.github.io/
+  - [Player/Stage tutorial](http://player-stage-manual.readthedocs.io/en/latest/)
 
 
 Installation
