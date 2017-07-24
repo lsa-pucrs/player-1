@@ -197,7 +197,8 @@ int set_servo_position(int fd, int servo_num, int angle)
 void make_command(char *cmd, int *n, size_t size, char *full_command)
 {
 	char value[3];                 // the values are all withing 3 digits
-	int length, i;
+	int i;
+	//int length, i;
 	for(i = 0; i < 10; i++)        // set all to null so that if there are
 		full_command[i] = '\0';    // unsed characters at the end, the camera
                                    // does not complain about the command.
@@ -205,7 +206,8 @@ void make_command(char *cmd, int *n, size_t size, char *full_command)
 	strcat(full_command, cmd);     // attach the command header, ex. SF
 	for(i = 0; i < (int)size; i++) // for all the values, convert them into char
 	{                              // and attach them to the end of the command
-		length = snprintf(value, 3, "%d", n[i]);    // plus a space
+		//length = snprintf(value, 3, "%d", n[i]);    // plus a space
+		snprintf(value, 3, "%d", n[i]);    // plus a space
 		strcat(full_command, value);
 		strcat(full_command, " ");
 	}

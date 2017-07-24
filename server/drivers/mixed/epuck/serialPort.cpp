@@ -176,13 +176,15 @@ SerialPort::sendInt(int message) const
   chMessage[0] = message & 0xFF;
   chMessage[1] = (message>>8) & 0xFF;
 
-  int tmp = 0;
-  tmp = write(this->fileDescriptor, chMessage, 2);
+  //int tmp = 0;
+  //tmp = write(this->fileDescriptor, chMessage, 2);
+  write(this->fileDescriptor, chMessage, 2);
 }
 
 void
 SerialPort::sendChar(char message) const
 {
-  int tmp = 0;
-  tmp = write(this->fileDescriptor, &message, 1);
+  //int tmp = 0;
+  //tmp = write(this->fileDescriptor, &message, 1);
+  write(this->fileDescriptor, &message, 1);
 }

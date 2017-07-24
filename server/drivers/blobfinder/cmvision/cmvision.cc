@@ -142,11 +142,8 @@ int CMVision::encodeRuns(rle * restrict out,unsigned * restrict map)
 {
   int x,y,j,l;
   unsigned m,save;
-  int size;
   unsigned *row;
   rle r;
-
-  size = width * height;
 
   // initialize terminator restore
   save = map[0];

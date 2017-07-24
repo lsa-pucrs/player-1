@@ -709,9 +709,9 @@ void
 VFH_Class::ProcessLaser(player_laser_data_t &data)
 {
   int i;
-  double b, db, r;
+  double db, r;
 
-  b = RTOD(data.min_angle);
+  //b = RTOD(data.min_angle);
   db = RTOD(data.resolution);
 
   this->laser_count = 361;

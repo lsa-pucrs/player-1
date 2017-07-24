@@ -225,8 +225,9 @@ double LaserCSpace::FreeRange(player_laser_data_t* data, int n)
 {
   unsigned int i;
   int step;
-  double r, b, x, y;
-  double r_, b_, x_, y_;
+  double r, x, y;
+  double r_, x_, y_;
+  //double b, b_;
   double s, nr, nx, ny, dx, dy;
   double d, h;
   double max_r;
@@ -236,7 +237,7 @@ double LaserCSpace::FreeRange(player_laser_data_t* data, int n)
 
   // Range and bearing of this reading.
   r = this->lu[n][0];
-  b = this->lu[n][1];
+  //b = this->lu[n][1];
   x = this->lu[n][2];
   y = this->lu[n][3];
 
@@ -248,7 +249,7 @@ double LaserCSpace::FreeRange(player_laser_data_t* data, int n)
     r_ = this->lu[i][0];
     if (r_ - this->radius > max_r)
       continue;
-    b_ = this->lu[i][1];
+    //b_ = this->lu[i][1];
     x_ = this->lu[i][2];
     y_ = this->lu[i][3];
 

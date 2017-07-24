@@ -562,7 +562,7 @@ void SimpleShape::ExtractFeatureSet(CvContour *contour, FeatureSet *feature)
 
   CvPoint *a, *b, *c;
   double ax, ay, bx, by, cx, cy;
-  double d, n, m;
+  double d, m;
 
   // Construct a string describing the polygon (used for syntactic
   // matching)
@@ -589,7 +589,7 @@ void SimpleShape::ExtractFeatureSet(CvContour *contour, FeatureSet *feature)
     cy /= d;
 
     // Compute projections
-    n = cx * ax + cy * ay;
+    //n = cx * ax + cy * ay;
     m = cx * bx + cy * by;
 
     // Add a symbol; right now this is just -1, +1, corresponding to

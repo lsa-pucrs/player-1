@@ -121,11 +121,11 @@ MapInfo MAP::GetMapInfo()
 };
 void MAP::DrawPixel (int red,int green,int blue,int i,int j)
 {
-	int rowstride=0, n_channels, bps;
+	int rowstride=0, n_channels;
   	guchar *pixels;
   	guchar * p;
   	rowstride = gdk_pixbuf_get_rowstride(this->pixbuf);
-  	bps = gdk_pixbuf_get_bits_per_sample(this->pixbuf)/8;
+  	//bps = gdk_pixbuf_get_bits_per_sample(this->pixbuf)/8;
   	n_channels = gdk_pixbuf_get_n_channels(this->pixbuf);
   	pixels = gdk_pixbuf_get_pixels(this->pixbuf);
   	if(gdk_pixbuf_get_has_alpha(this->pixbuf))

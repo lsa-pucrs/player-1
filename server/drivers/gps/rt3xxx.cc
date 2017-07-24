@@ -233,13 +233,13 @@ int rt3xxx::ProcessPacket() {
 	float * altitude_pointer;
 	unsigned char num_satellites;
 	unsigned char position_mode;
-	unsigned char velocity_mode;
+	//unsigned char velocity_mode;
 	static long gps_time_minutes; 	// The GPS time in minutes is not transmitted
 								// with every packet so it needs to persist over
 								// multiple function calls.
 	double heading;
 	unsigned char hdop;
-	unsigned char pdop;
+	//unsigned char pdop;
 	
 	
 	numbytes = recv(sockfd, &buf, MAXBUFLEN-1 , 0);
@@ -366,7 +366,7 @@ int rt3xxx::ProcessPacket() {
 					
 					num_satellites = buf[66];
 					position_mode = buf[67];
-					velocity_mode = buf[68];
+					//velocity_mode = buf[68];
 					
 					this->gps_data.num_sats = (uint32_t) num_satellites;
 					
@@ -388,7 +388,7 @@ int rt3xxx::ProcessPacket() {
 				}
 				else if (buf[61] == 48) {
 					hdop = buf[64];
-					pdop = buf[65];
+					//pdop = buf[65];
 					
 					this->gps_data.hdop = (uint32_t) (hdop * 10);
 				}

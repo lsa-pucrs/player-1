@@ -423,7 +423,7 @@ int gridmap::UpdateMap(player_position2d_data_t* odom, player_sonar_data_t* sona
   if (odom->vel.px == 0 && odom->vel.py == 0 && odom->vel.pa == 0) return(0);
 
   unsigned int s,x,y;
-  int px,py,r,o;
+  int px,py,r;
   float th_sonar;
   // compute r * tan(alfa/2), where alfa is the sonar angular aperture
   // and r is the sonar distance
@@ -437,7 +437,7 @@ int gridmap::UpdateMap(player_position2d_data_t* odom, player_sonar_data_t* sona
   if(sonar->ranges[s] <= 0.001 || sonar->ranges[s] > this->sonar_treshold) continue;
   th_sonar = this->sonar_geom.poses[s].pyaw + odom->pos.pa;
   // using a line 10 times smaller 'cause real sonar wave was too big
-  o = (int) (r*tanf(M_PI/16) / 10);
+  //o = (int) (r*tanf(M_PI/16) / 10);
   // px and py are the global coordinates for the starting point of the sonar ray
   // map width/2 and height/2 are added 'cause stage puts 0,0 in the center of the
   // window, maps have 0,0 on the bottom left corner

@@ -62,7 +62,7 @@
 #else
   #include <sys/time.h>
 #endif
-static double get_time(void);
+//static double get_time(void);
 
 #if 0
 void draw_cspace(plan_t* plan, const char* fname);
@@ -107,9 +107,9 @@ plan_set_obstacles(plan_t* plan, double* obs, size_t num)
   int di,dj;
   float* p;
   plan_cell_t* cell, *ncell;
-  double t0,t1;
+  //double t0,t1;
 
-  t0 = get_time();
+  //t0 = get_time();
 
   // Start with static obstacle data
   cell = plan->cells;
@@ -159,7 +159,7 @@ plan_set_obstacles(plan_t* plan, double* obs, size_t num)
     }
   }
 
-  t1 = get_time();
+  //t1 = get_time();
   //printf("plan_set_obstacles: %.6lf\n", t1-t0);
 }
 
@@ -792,7 +792,7 @@ plan_md5(unsigned int* digest, plan_t* plan)
 #endif // HAVE_OPENSSL_MD5_H && HAVE_LIBCRYPTO
 
 #endif // if 0
-
+/*
 double 
 static get_time(void)
 {
@@ -800,3 +800,4 @@ static get_time(void)
   gettimeofday(&curr,NULL);
   return(curr.tv_sec + curr.tv_usec / 1e6);
 }
+*/

@@ -804,12 +804,12 @@ static void ObtenerObstaculos(TInfoND *nd,float beta) {
 
   TCoordenadas p;
   TCoordenadasPolares pp;
-  float alfa,angulo,min_izq,min_der;
+  float angulo,min_izq,min_der;
   int i;
 
   ConstruirCoordenadasCxy(&p,robot.Dimensiones[0],robot.Dimensiones[1]);
   ConstruirCoordenadasPcC(&pp,p);
-  alfa=pp.a;
+  //alfa=pp.a;
 
   nd->obstaculo_izquierda=-1;
   nd->obstaculo_derecha=-1;

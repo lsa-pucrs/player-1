@@ -93,42 +93,43 @@ typedef struct
 typedef struct
 {
   double AngleConvFactor; // 
-  char* Class; // 
-  char* CompassPort; // 
-  char* CompassType; // 
+  //char* Class; // 
+  const char* Class; // 
+  const char* CompassPort; // 
+  const char* CompassType; // 
   double DiffConvFactor; // 
   double DistConvFactor; // 
   int FrontBumpers; // 
   int GPSBaud; // 
   int GPSPX; // 
   int GPSPY; // 
-  char* GPSPort; // 
-  char* GPSType; // 
+  const char* GPSPort; // 
+  const char* GPSType; // 
   double GyroScaler; // 
   int HasLatVel; // 
   int HasMoveCommand; // 
   int Holonomic; // 
   int IRNum; // 
   int IRUnit; // 
-  char* LaserAutoBaudChoice; // 
+  const char* LaserAutoBaudChoice; // 
   int LaserAutoConnect; // 
   int LaserCumulativeBufferSize; // 
-  char* LaserDegreesChoice; // 
-  char* LaserEndDegrees; // 
+  const char* LaserDegreesChoice; // 
+  const char* LaserEndDegrees; // 
   int LaserFlipped; // 
-  char* LaserIgnore; // 
-  char* LaserIncrement; // 
-  char* LaserIncrementChoice; // 
+  const char* LaserIgnore; // 
+  const char* LaserIncrement; // 
+  const char* LaserIncrementChoice; // 
   int LaserMaxRange; // 
-  char* LaserPort; // 
-  char* LaserPortType; // 
+  const char* LaserPort; // 
+  const char* LaserPortType; // 
   int LaserPowerControlled; // 
-  char* LaserReflectorBitsChoice; // 
-  char* LaserStartDegrees; // 
-  char* LaserStartingBaudChoice; // 
+  const char* LaserReflectorBitsChoice; // 
+  const char* LaserStartDegrees; // 
+  const char* LaserStartingBaudChoice; // 
   int LaserTh; // 
-  char* LaserType; // 
-  char* LaserUnitsChoice; // 
+  const char* LaserType; // 
+  const char* LaserUnitsChoice; // 
   int LaserX; // 
   int LaserY; // 
   int LaserZ; // 
@@ -157,7 +158,7 @@ typedef struct
   int SettableAccsDecs; // 
   int SettableVelMaxes; // 
   int SonarNum; // 
-  char* Subclass; // 
+  const char* Subclass; // 
   int SwitchToBaudRate; // 
   int TableSensingIR; // 
   int TransAccel; // 

@@ -394,7 +394,7 @@ void LaserFeature::Main()
 void LaserFeature::SegmentLaser()
 {
 	int i;
-	double r, b;
+	double r;
 	double res;
 	double x[2], P[2][2];
 	double Q[2][2], R;
@@ -429,7 +429,7 @@ void LaserFeature::SegmentLaser()
 	for (i = 0; i < this->laser_data.ranges_count; i++)
 	{
 		r = (double) (this->laser_data.ranges[i]);
-		b = (double) (this->laser_data.min_angle) * M_PI / 180 + i * res;
+		//b = (double) (this->laser_data.min_angle) * M_PI / 180 + i * res;
 
 		err = this->UpdateFilter(x, P, Q, R, r, res);
 
@@ -476,7 +476,7 @@ void LaserFeature::SegmentLaser()
 	for (i = this->laser_data.ranges_count - 1; i >= 0; i--)
 	{
 		r = (double) (this->laser_data.ranges[i]);
-		b = (double) (this->laser_data.min_angle) * M_PI / 180 + i * res;
+		//b = (double) (this->laser_data.min_angle) * M_PI / 180 + i * res;
 
 		err = this->UpdateFilter(x, P, Q, R, r, -res);
 

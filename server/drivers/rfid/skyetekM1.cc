@@ -586,7 +586,7 @@ unsigned char SkyetekM1::Sleep ()
 	unsigned char command_buf[80], response_buf[80];
 	unsigned char i = 0;
 	unsigned int crc_check;
-	int      s_rwStatus;
+	//int      s_rwStatus;
 
 	// binary mode command format: msgLen|flags|command|startblock|numblocks|crc
 	command_buf[i++] = 0x07;             // set msg length
@@ -602,7 +602,8 @@ unsigned char SkyetekM1::Sleep ()
 	command_buf[i++] = crc_check & 0x00FF;
 
 	// copy the command buffer and prepare to write
-	s_rwStatus = S_ReadWrite (command_buf, i, response_buf);
+	//s_rwStatus = S_ReadWrite (command_buf, i, response_buf);
+	S_ReadWrite (command_buf, i, response_buf);
 
 	// verify return CRC
 	if (VerifyCRC (response_buf))
@@ -619,7 +620,7 @@ unsigned char SkyetekM1::Wake ()
 	unsigned char command_buf[80], response_buf[80];
 	unsigned char i = 0;
 	unsigned int crc_check;
-	int      s_rwStatus;
+	//int      s_rwStatus;
 
 	// binary mode command format: msgLen|flags|command|startblock|numblocks|crc
 	command_buf[i++] = 0x07;             // set msg length
@@ -635,7 +636,8 @@ unsigned char SkyetekM1::Wake ()
 	command_buf[i++] = crc_check & 0x00FF;
 
 	// copy the command buffer and prepare to write
-	s_rwStatus = S_ReadWrite (command_buf, i, response_buf);
+	//s_rwStatus = S_ReadWrite (command_buf, i, response_buf);
+	S_ReadWrite (command_buf, i, response_buf);
 
 	// verify return CRC
 	if (VerifyCRC (response_buf))

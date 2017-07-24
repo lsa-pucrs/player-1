@@ -231,9 +231,9 @@ int USBIO::ReadPacket(CanPacket *pkt) {
 
 	if( pkt->id == 0x402 ) {
 		struct timeval now;
-		short s1, s2;
-		s1 = (pkt->msg[0] << 8 ) + pkt->msg[1];
-		s2 = (pkt->msg[2] << 8 ) + pkt->msg[3];
+		//short s1, s2;
+		//s1 = (pkt->msg[0] << 8 ) + pkt->msg[1];
+		//s2 = (pkt->msg[2] << 8 ) + pkt->msg[3];
 		gettimeofday( &now, 0 );
 	}
 
@@ -269,9 +269,9 @@ int USBIO::WritePacket(CanPacket &pkt) {
 	ret = write( fd, &up, sizeof(up) );
 
 	struct timeval now;
-	short s1, s2;
-	s1 = (pkt.msg[0] << 8 ) + pkt.msg[1];
-	s2 = (pkt.msg[2] << 8 ) + pkt.msg[3];
+	//short s1, s2;
+	//s1 = (pkt.msg[0] << 8 ) + pkt.msg[1];
+	//s2 = (pkt.msg[2] << 8 ) + pkt.msg[3];
 	gettimeofday( &now, 0 );
 
 	return ret;

@@ -1029,7 +1029,7 @@ void roboteq::UpdatePowerData(player_power_data_t * power_data) {
 int roboteq::WriteMotorVelocity(double forward_velocity, double rotational_velocity) {
 	unsigned char forward_value, rotational_value;
 	char returned_value;
-	int ret;
+	//int ret;
 	
 	// We hard limit the input velocities.
 	if (fabs(forward_velocity) > max_forward_velocity) {
@@ -1077,10 +1077,12 @@ int roboteq::WriteMotorVelocity(double forward_velocity, double rotational_veloc
 	usleep(25000);
 		
 	memset(serialin_buff, 0, SERIAL_BUFF_SIZE);
-	ret = read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
+	//ret = read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
+	read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
 	serialin_buff[SERIAL_BUFF_SIZE-1] = 0x00; // Null terminate our buffer to make sure sscanf doesn't run amok.
 
-	ret = sscanf(serialin_buff, "%*4c %1c", &returned_value);
+	sscanf(serialin_buff, "%*4c %1c", &returned_value);
+	//ret = sscanf(serialin_buff, "%*4c %1c", &returned_value);
 		
 	if (returned_value != '+') {
 		// Some kind of error happened.
@@ -1103,10 +1105,12 @@ int roboteq::WriteMotorVelocity(double forward_velocity, double rotational_veloc
 	usleep(25000);
 		
 	memset(serialin_buff, 0, SERIAL_BUFF_SIZE);
-	ret = read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
+	//ret = read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
+	read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
 	serialin_buff[SERIAL_BUFF_SIZE-1] = 0x00; // Null terminate our buffer to make sure sscanf doesn't run amok.
 
-	ret = sscanf(serialin_buff, "%*4c %1c", &returned_value);
+	//ret = sscanf(serialin_buff, "%*4c %1c", &returned_value);
+	sscanf(serialin_buff, "%*4c %1c", &returned_value);
 		
 	if (returned_value != '+') {
 		// Some kind of error happened.
@@ -1239,7 +1243,7 @@ void roboteq::UpdatePositionData(player_position2d_data_t * position_data) {
 
 int roboteq::ProcessPosition1dCmd(int motor_index, player_position1d_cmd_pos_t * data)
 {
-	int ret;
+	//int ret;
 	float position = data->pos;
 	unsigned char position_value;
 	char returned_value;
@@ -1279,10 +1283,12 @@ int roboteq::ProcessPosition1dCmd(int motor_index, player_position1d_cmd_pos_t *
 	usleep(25000);
 		
 	memset(serialin_buff, 0, SERIAL_BUFF_SIZE);
-	ret = read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
+	//ret = read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
+	read(roboteq_fd, serialin_buff, SERIAL_BUFF_SIZE-1);
 	serialin_buff[SERIAL_BUFF_SIZE-1] = 0x00; // Null terminate our buffer to make sure sscanf doesn't run amok.
 
-	ret = sscanf(serialin_buff, "%*4c %1c", &returned_value);
+	//ret = sscanf(serialin_buff, "%*4c %1c", &returned_value);
+	sscanf(serialin_buff, "%*4c %1c", &returned_value);
 		
 	if (returned_value != '+') {
 		// Some kind of error happened.

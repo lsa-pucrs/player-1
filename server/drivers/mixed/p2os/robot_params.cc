@@ -169,7 +169,7 @@ RobotParams_t amigo_sh_params =
 };
 
 RobotParams_t amigo_params = 
-{
+{ 
   0.001534, // AngleConvFactor
   "Pioneer", // Class
   "", // CompassPort

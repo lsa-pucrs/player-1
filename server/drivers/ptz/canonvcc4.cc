@@ -537,7 +537,7 @@ canonvcc4::GetAbsPanTilt(int* pan, int* tilt)
 {
   unsigned char command[MAX_PTZ_COMMAND_LENGTH];
   unsigned char reply[MAX_PTZ_REQUEST_LENGTH];
-  int reply_len;
+  //int reply_len;
   unsigned char buf[4];
   char byte;
   unsigned int u_val;
@@ -554,7 +554,8 @@ canonvcc4::GetAbsPanTilt(int* pan, int* tilt)
   if (SendRequest(command, 6, reply))
     return(-1);
   //  PrintPacket("getabspantilt: ", command, 6);
-  reply_len = ReceiveRequestAnswer(reply);
+  //reply_len = ReceiveRequestAnswer(reply);
+  ReceiveRequestAnswer(reply);
   // remove the ascii encoding, and put into 4-byte array
   for (i = 0; i < 4; i++)
     {
@@ -598,7 +599,7 @@ canonvcc4::GetAbsZoom(int* zoom)
 {
   unsigned char command[MAX_PTZ_COMMAND_LENGTH];
   unsigned char reply[MAX_PTZ_REQUEST_LENGTH];
-  int reply_len;
+  //int reply_len;
   char byte;
   unsigned char buf[4];
   unsigned int u_zoom;
@@ -615,7 +616,8 @@ canonvcc4::GetAbsZoom(int* zoom)
     return(-1);
   //  PrintPacket( "getabszoom: ", command, 6);
 
-  reply_len = ReceiveRequestAnswer(reply);
+  //reply_len = ReceiveRequestAnswer(reply);
+  ReceiveRequestAnswer(reply);
 
 //   if (reply_len < 0)
 //     return -1;

@@ -1194,9 +1194,9 @@ void mbasedriver::ToggleSonar(unsigned char val)
 */
 void mbasedriver::Main() 
 {
-	int last_position_subscrcount=0;
-	int last_aio_ir_subscriptions=0;
-	int last_sonar_subscriptions=0;
+	//int last_position_subscrcount=0;
+	//int last_aio_ir_subscriptions=0;
+	//int last_sonar_subscriptions=0;
 
   	for(;;)
   	{
@@ -1219,7 +1219,7 @@ void mbasedriver::Main()
 			this->ToggleMotorPower(1);
 		}
 		*/
-    		last_position_subscrcount = this->position_subscriptions;
+    		//last_position_subscrcount = this->position_subscriptions;
 
 		// We'll ask the robot to enable analog packets if we just got our
 		// first subscriber
@@ -1228,7 +1228,7 @@ void mbasedriver::Main()
 		else if(last_aio_ir_subscriptions && !(this->aio_ir_subscriptions))
 			this->ToggleAIn(0);
 		*/
-    		last_aio_ir_subscriptions = this->aio_ir_subscriptions;
+    		//last_aio_ir_subscriptions = this->aio_ir_subscriptions;
 
 		// We'll ask the robot to enable sonar packets if we just got our
 		// first subscriber
@@ -1237,7 +1237,7 @@ void mbasedriver::Main()
 		else if(last_sonar_subscriptions && !(this->sonar_subscriptions))
 			this->ToggleSonar(0);
 		*/
-    		last_sonar_subscriptions = this->sonar_subscriptions;
+    		//last_sonar_subscriptions = this->sonar_subscriptions;
 
 		// handle pending messages
 		//printf( "Will look for incoming messages\n" );

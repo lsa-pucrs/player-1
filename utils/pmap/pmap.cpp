@@ -652,12 +652,12 @@ void pmap_draw_samples(pmap_t *self)
 {
 #ifdef GLUT_FOUND
   int i;
-  pmap_sample_t *sample;
+  //pmap_sample_t *sample;
 
   // Draw all samples 
   for (i = 0; i < self->samples_len; i++)
   {
-    sample = PMAP_GET_SAMPLE(self, i);  
+    //sample = PMAP_GET_SAMPLE(self, i);  
     glColor3f(0, 0, 0.5);
     pmap_draw_sample(self, i);
   }

@@ -51,7 +51,7 @@ FILE
     FILE *output;
     FILE *rest;
     struct stat fbuf;
-    long lastdatalen;
+    //long lastdatalen;
 
     // Save current position in file
     long currentPos = ftell (input);
@@ -114,7 +114,7 @@ FILE
 	while (1)
 	{
 	    fgets (data, 1024, input);
-	    lastdatalen = strlen (data);
+	    //lastdatalen = strlen (data);
 	    if (feof (input))
 		break;
     	    fputs (data, rest);

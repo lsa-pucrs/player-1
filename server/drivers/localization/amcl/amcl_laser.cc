@@ -322,9 +322,9 @@ int AMCLLaser::ProcessMessage(QueuePointer &resp_queue,
 // Apply the laser sensor model
 bool AMCLLaser::UpdateSensor(pf_t *pf, AMCLSensorData *data)
 {
-  AMCLLaserData *ndata;
+  //AMCLLaserData *ndata;
 
-  ndata = (AMCLLaserData*) data;
+  //ndata = (AMCLLaserData*) data;
   if (this->max_beams < 2)
     return false;
 

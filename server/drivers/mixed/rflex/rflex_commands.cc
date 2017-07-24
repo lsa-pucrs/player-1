@@ -385,14 +385,14 @@ int rflex_close_connection(int *fd)
 //struct for later use
 static void parseMotReport( unsigned char *buffer )
 {
-  int rv, timeStamp, acc, trq;
+  //int rv, timeStamp, acc, trq;
   unsigned char axis, opcode;
 
   opcode = buffer[4];
   switch(opcode) {
   case MOT_SYSTEM_REPORT:
-    rv        = convertBytes2UInt32(&(buffer[6]));
-    timeStamp = convertBytes2UInt32(&(buffer[10]));
+    //rv        = convertBytes2UInt32(&(buffer[6]));
+    //timeStamp = convertBytes2UInt32(&(buffer[10]));
     axis      = buffer[14];
     if (axis == 0) {
       status.distance = convertBytes2UInt32(&(buffer[15]));
@@ -401,8 +401,8 @@ static void parseMotReport( unsigned char *buffer )
       status.bearing = convertBytes2UInt32(&(buffer[15]));
       status.r_vel = convertBytes2UInt32(&(buffer[19]));
     }
-    acc       = convertBytes2UInt32(&(buffer[23]));
-    trq       = convertBytes2UInt32(&(buffer[27]));
+    //acc       = convertBytes2UInt32(&(buffer[23]));
+    //trq       = convertBytes2UInt32(&(buffer[27]));
     break;
   default:
     break;
@@ -413,7 +413,7 @@ static void parseMotReport( unsigned char *buffer )
 //struct for later use, dio report includes bump sensors...
 static void parseDioReport( unsigned char *buffer )
 {
-	unsigned long timeStamp;
+	//unsigned long timeStamp;
 	unsigned char opcode, length, address;
 	unsigned short data;
 
@@ -429,7 +429,7 @@ static void parseDioReport( unsigned char *buffer )
        			fprintf(stderr, "DIO Data Packet too small\n");
        			break;
    			}
-   			timeStamp = convertBytes2UInt32(&(buffer[6]));
+   			//timeStamp = convertBytes2UInt32(&(buffer[6]));
    			address = buffer[10];
    			data = convertBytes2UInt16(&(buffer[11]));
 
@@ -595,7 +595,8 @@ static void parseDioReport( unsigned char *buffer )
 //struct for later use, sys is primarily used for bat voltage & brake status
 static void parseSysReport( unsigned char *buffer )
 {
-   unsigned long timeStamp, voltage;
+   //unsigned long timeStamp, voltage;
+   unsigned long voltage;
    unsigned char opcode, length, brake;
 
 
@@ -615,7 +616,7 @@ static void parseSysReport( unsigned char *buffer )
 			}
 
 			unsigned char lcd_length, row;
-			timeStamp=convertBytes2UInt32(&(buffer[6]));
+			//timeStamp=convertBytes2UInt32(&(buffer[6]));
 			row = buffer[10];
 			lcd_length = buffer[11];
 			if (row > status.lcd_y || lcd_length > status.lcd_x)
@@ -661,7 +662,7 @@ static void parseSysReport( unsigned char *buffer )
 				fprintf(stderr, "Got bad Sys packet (status)\n");
 				break;
 			}
-			timeStamp=convertBytes2UInt32(&(buffer[6]));
+			//timeStamp=convertBytes2UInt32(&(buffer[6]));
 			// raw voltage measurement...needs calibration offset added
 			voltage=convertBytes2UInt32(&(buffer[10]));
 			brake=buffer[14];
@@ -683,9 +684,9 @@ static void parseSonarReport( unsigned char *buffer )
 
   unsigned int sid;
 
-  int x,smallest;
+  int x,smallest, count;
 
-  int count, retval, timeStamp;
+  //int count, retval, timeStamp;
   unsigned char opcode, dlen;
 
   opcode = buffer[4];
@@ -696,8 +697,8 @@ static void parseSonarReport( unsigned char *buffer )
   case SONAR_REPORT:
 	if (status.ranges == NULL || status.oldranges == NULL)
 		return;
-    retval    = convertBytes2UInt32(&(buffer[6]));
-    timeStamp = convertBytes2UInt32(&(buffer[10]));
+    //retval    = convertBytes2UInt32(&(buffer[6]));
+    //timeStamp = convertBytes2UInt32(&(buffer[10]));
     count = 0;
     while ((8+count*3<dlen) && (count<256) && (count < rflex_configs.num_sonars)) {
       sid = buffer[14+count*3];

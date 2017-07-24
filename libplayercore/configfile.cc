@@ -1196,12 +1196,10 @@ bool ConfigFile::ParseTokenSection(int section, int *index, int *line)
 bool ConfigFile::ParseTokenField(int section, int *index, int *line)
 {
   int i, field;
-  int name, value, count;
+  int name;
   Token *token;
 
   name = *index;
-  value = -1;
-  count = 0;
 
   for (i = *index + 1; i < this->token_count; i++)
   {

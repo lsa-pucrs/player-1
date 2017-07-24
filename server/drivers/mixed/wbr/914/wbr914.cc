@@ -1119,9 +1119,6 @@ int wbr914::ResetRawPositions()
 {
   if ( _debug )
     printf("Reset Odometry\n");
-  int Values[2];
-  Values[0] = 0;
-  Values[1] = 0;
 
   if ( _debug )
     printf( "SetActualPositionInTicks\n" );
@@ -1358,7 +1355,7 @@ int wbr914::sendCmdCom( unsigned char address, unsigned char c,
 
   unsigned char cmd[8];
   //bool retry = true;
-  unsigned char savecs;
+  //unsigned char savecs;
 
   cmd[0] = address;
   cmd[1] = 0;          // checksum. to be overwritten
@@ -1382,7 +1379,7 @@ int wbr914::sendCmdCom( unsigned char address, unsigned char c,
   // Set the checksum
   int cs = -chk;
   cmd[1] = (unsigned char) (cs & 0xff);
-  savecs = cmd[1];
+  //savecs = cmd[1];
 
   int result;
 

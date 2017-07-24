@@ -799,7 +799,7 @@ int SonyEVID30::Receive(unsigned char *reply)
   int newnumread = 0;
   int bufptr = -1;
   int i;
-  int temp;
+  //int temp;
   int pret;
 
   memset(temp_reply,0,MAX_PTZ_PACKET_LENGTH);
@@ -858,7 +858,7 @@ int SonyEVID30::Receive(unsigned char *reply)
     }
   }
 
-  temp = this->numread;
+  //temp = this->numread;
   // if we read extra bytes, keep them around
   if (bufptr == ((this->numread) - 1))
     this->numread = 0;

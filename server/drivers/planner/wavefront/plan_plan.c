@@ -40,7 +40,7 @@
 #else
   #include <sys/time.h>
 #endif
-static double get_time(void);
+//static double get_time(void);
 
 #include "plan.h"
 
@@ -56,9 +56,9 @@ plan_do_global(plan_t *plan, double lx, double ly, double gx, double gy)
 {
   plan_cell_t* cell;
   int li, lj;
-  double t0,t1;
+  //double t0,t1;
 
-  t0 = get_time();
+  //t0 = get_time();
 
   // Set bounds to look over the entire grid
   plan_set_bounds(plan, 0, 0, plan->size_x - 1, plan->size_y - 1);
@@ -91,7 +91,7 @@ plan_do_global(plan_t *plan, double lx, double ly, double gx, double gy)
     plan->path[plan->path_count++] = cell;
   }
 
-  t1 = get_time();
+  //t1 = get_time();
 
   //printf("computed global path: %.6lf\n", t1-t0);
 
@@ -105,10 +105,10 @@ plan_do_local(plan_t *plan, double lx, double ly, double plan_halfwidth)
   int li, lj;
   int xmin,ymin,xmax,ymax;
   plan_cell_t* cell;
-  double t0,t1;
+  //double t0,t1;
   int i;
 
-  t0 = get_time();
+  //t0 = get_time();
 
   // Set bounds as directed
   xmin = PLAN_GXWX(plan, lx - plan_halfwidth);
@@ -160,7 +160,7 @@ plan_do_local(plan_t *plan, double lx, double ly, double plan_halfwidth)
     cell->lpathmark = 1;
   }
 
-  t1 = get_time();
+  //t1 = get_time();
 
   //printf("computed local path: %.6lf\n", t1-t0);
   return(0);
@@ -384,7 +384,7 @@ plan_cell_t *plan_pop(plan_t *plan)
   else
     return(heap_extract_max(plan->heap));
 }
-
+/*
 double 
 static get_time(void)
 {
@@ -392,3 +392,4 @@ static get_time(void)
   gettimeofday(&curr,NULL);
   return(curr.tv_sec + curr.tv_usec / 1e6);
 }
+*/

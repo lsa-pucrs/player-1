@@ -732,7 +732,7 @@ int InsideM300::SelectTags ()
 void InsideM300::InsideInventory (int maskLength, int chipMask,
 				  unsigned char *globalChipAnswer)
 {
-	unsigned int  status, iStatus;
+	unsigned int  iStatus;
 	unsigned char ISOCommand[5];
 	unsigned char chipAnswer[24];
 	int i;
@@ -748,8 +748,8 @@ void InsideM300::InsideInventory (int maskLength, int chipMask,
 	iStatus = SendISOCommand (ISO_IN, 0, 0xC2, 0xF3, 0x0A, 0x05, ISOCommand,
 				  chipAnswer);
 	// Get UID
-	status  = SendISOCommand (ISO_OUT, 10, 0xC0, 0x00, 0x00, 0x0A, NULL,
-				  chipAnswer);
+	//status  = SendISOCommand (ISO_OUT, 10, 0xC0, 0x00, 0x00, 0x0A, NULL,
+	//			  chipAnswer);
 
 	chipMask = chipAnswer[2];
 

@@ -1218,7 +1218,7 @@ int GarminNMEA::ParseGPGST(const char *buf)
   const char *ptr = buf;
   char field[32];
   double err;
-  double utc;
+  //double utc;
 
 //  printf("got GPGST (%s)\n", buf);
 //  fflush(stdout);
@@ -1227,7 +1227,7 @@ int GarminNMEA::ParseGPGST(const char *buf)
     return(-1);
 
   // First field is UTC time
-  utc = atof(field);
+  //utc = atof(field);
   /* Maybe do a check to make sure current packet is the right packet */
 
   if(!(ptr = GetNextField(field, sizeof(field), ptr)))

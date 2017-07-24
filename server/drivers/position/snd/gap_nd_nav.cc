@@ -257,7 +257,7 @@ void* main_algorithm(void* proxy)
 		pp.RequestGeom();
 		
 		timeval startTimeval, loopTimeval, endTimeval;
-		double diffTime, totalTime;
+		double diffTime;//, totalTime;
 		
 		int loopCount = 0;
 		
@@ -268,7 +268,7 @@ void* main_algorithm(void* proxy)
 		
 		double safetyDist;
 		double minObsDist;
-		int iSMinObs;
+		//int iSMinObs;
 		double di;
 		std::vector<double> fullLP(iNumSectors, 0.0);
 		std::vector<double> PND(iNumSectors, 0.0);
@@ -286,9 +286,9 @@ void* main_algorithm(void* proxy)
 		
 		int iSTheta;
 		double theta, newTurnRate, newSpeed;
-		double fullTheta;
-		double thetaDes = -99;
-		double thetaAvoid = -99;
+		//double fullTheta;
+		//double thetaDes = -99;
+		//double thetaAvoid = -99;
 		
 		gettimeofday( &endTimeval, NULL );
 		gettimeofday( &startTimeval, NULL );
@@ -380,7 +380,7 @@ void* main_algorithm(void* proxy)
 		
 			// Compute PND
 			minObsDist = fMaxRange;
-			iSMinObs = iNumSectors/2;
+			//iSMinObs = iNumSectors/2;
 			for (int i = 0; i < iNumSectors; i++)
 			{
 				if( fullLP[getIndex(i,iNumSectors)] >= fMaxRange ) 
@@ -393,7 +393,7 @@ void* main_algorithm(void* proxy)
 					if( fullLP[getIndex(i,iNumSectors)] < minObsDist )
 					{
 						minObsDist = fullLP[getIndex(i,iNumSectors)];
-						iSMinObs = getIndex(i,iNumSectors);
+						//iSMinObs = getIndex(i,iNumSectors);
 					}
 				}
 			}
@@ -888,8 +888,8 @@ void* main_algorithm(void* proxy)
 					std::cout<< "Sao " << (int)Sao << ", mod area sum " << modAreaSum << std::endl;
 				}
 				
-				thetaAvoid = fScanRes*(Sao);
-				thetaDes = fScanRes*(iSt - iNumSectors/2.0);
+				//thetaAvoid = fScanRes*(Sao);
+				//thetaDes = fScanRes*(iSt - iNumSectors/2.0);
 				
 				iSTheta = (int)round(iSt + Sao);
 				
@@ -901,7 +901,7 @@ void* main_algorithm(void* proxy)
 			}
 			
 			theta = fScanRes*(iSTheta - iNumSectors/2.0);
-			fullTheta = theta;
+			//fullTheta = theta;
 			theta = limit( theta, -M_PI/2.0, M_PI/2.0 );
 			
 			newTurnRate = maxTurnRate*(2.0*theta/M_PI);
@@ -928,7 +928,7 @@ void* main_algorithm(void* proxy)
 			
 			gettimeofday(&endTimeval, NULL);
 			diffTime = timeval_subtract( &endTimeval, &loopTimeval );
-			totalTime = timeval_subtract( &endTimeval, &startTimeval );			
+			//totalTime = timeval_subtract( &endTimeval, &startTimeval );			
 			if( gDebug > 2 ) printf("Execution time: %.5f\n",diffTime);
 			
 			//if( gDebug > 0 ) printf("Data: %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f",pp.GetXPos(),pp.GetYPos(),pp.GetYaw(),newSpeed,newTurnRate,fullTheta,thetaDes,thetaAvoid,minObsDist,safetyDist,totalTime);

@@ -884,7 +884,7 @@ RFLEX::Main()
 
 
   static double mPsec_speedDemand=0.0, radPsec_turnRateDemand=0.0;
-  bool newmotorspeed, newmotorturn;
+  //bool newmotorspeed, newmotorturn;
 
   int i;
   int last_sonar_subscrcount = 0;
@@ -945,23 +945,23 @@ RFLEX::Main()
 
     if(this->position_subscriptions || rflex_configs.use_joystick || rflex_configs.home_on_start)
     {
-    newmotorspeed = false;
-    newmotorturn = false;
+    //newmotorspeed = false;
+    //newmotorturn = false;
 
     if (rflex_configs.home_on_start)
     {
       command.vel.pa = M_PI/18;
-      newmotorturn=true;
+      //newmotorturn=true;
     }
 
     if(mPsec_speedDemand != command.vel.px)
     {
-          newmotorspeed = true;
+          //newmotorspeed = true;
           mPsec_speedDemand = command.vel.px;
         }
         if(radPsec_turnRateDemand != command.vel.pa)
         {
-          newmotorturn = true;
+          //newmotorturn = true;
           radPsec_turnRateDemand = command.vel.pa;
         }
         /* NEXT, write commands */
@@ -1128,7 +1128,7 @@ void RFLEX::update_everything(player_rflex_data_t* d)
 
   static int initialized = 0;
 
-  double m_new_range_position; double rad_new_bearing_position;
+  //double m_new_range_position; double rad_new_bearing_position;
   double mPsec_t_vel;
   double radPsec_r_vel;
 
@@ -1150,8 +1150,8 @@ void RFLEX::update_everything(player_rflex_data_t* d)
                       &arb_r_vel);
   mPsec_t_vel=ARB2M_ODO_CONV(arb_t_vel);
   radPsec_r_vel=ARB2RAD_ODO_CONV(arb_r_vel);
-  m_new_range_position=ARB2M_ODO_CONV(arb_new_range_position);
-  rad_new_bearing_position=ARB2RAD_ODO_CONV(arb_new_bearing_position);
+  //m_new_range_position=ARB2M_ODO_CONV(arb_new_range_position);
+  //rad_new_bearing_position=ARB2RAD_ODO_CONV(arb_new_bearing_position);
 
   if (!initialized) {
     initialized = 1;

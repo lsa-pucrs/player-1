@@ -1004,10 +1004,10 @@ void
     {
       int ltics_delta, rtics_delta;
       double l_delta, r_delta, a_delta, d_delta;
-      int max_tics;
+      //int max_tics;
       static struct timeval lasttime;
       struct timeval currtime;
-      double timediff;
+      //double timediff;
 
       if(!this->_odom_initialized)
       {
@@ -1024,8 +1024,8 @@ void
       rtics_delta = rtics - this->_last_rtics;
 
       gettimeofday(&currtime,NULL);
-      timediff = (currtime.tv_sec + currtime.tv_usec/1e6) - (lasttime.tv_sec + lasttime.tv_usec/1e6);
-      max_tics = (int)rint(ER_MAX_WHEELSPEED / ER_M_PER_TICK / timediff);
+      //timediff = (currtime.tv_sec + currtime.tv_usec/1e6) - (lasttime.tv_sec + lasttime.tv_usec/1e6);
+      //max_tics = (int)rint(ER_MAX_WHEELSPEED / ER_M_PER_TICK / timediff);
       lasttime = currtime;
 
       if( _debug ) {
